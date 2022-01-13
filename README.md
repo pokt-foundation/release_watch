@@ -54,9 +54,9 @@ Each entry is formatted as follows:
 
 ```yaml
 name:
-	channel: id-of-the-discord-channel-to-notify
-	repo: url-to-the-repo
-	critical: true/false # If False, notifications won't be sent. Set to True to get notifications.
+  channel: id-of-the-discord-channel-to-notify
+  repo: url-to-the-repo
+  critical: true/false # If False, notifications won't be sent. Set to True to get notifications.
 ```
 
 To get the channel id, navigate in discord to the channel that you wish to notify. The channel id can

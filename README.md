@@ -69,6 +69,25 @@ that notifications can be toggled on as needed.
 
 ## Running
 
+To start the bot, simply run.
+
 ```sh
-$ run-cmd
+$ relase_watch
+```
+
+Full details:
+
+```sh
+$ release_watch -h
+usage: release_watch [-h] [-t TIME] [-c CONFIG]
+
+Discord bot for watching for unannouced github releases.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TIME, --time TIME  How often, in seconds, to check each of the tracked
+                        repositories.
+  -c CONFIG, --config CONFIG
+                        The path to the repos configuration file. The default
+                        path for this is repos.yml in the root of the project.
 ```

@@ -2,6 +2,7 @@
 Description=GitHub Node Release Watcher Bot
 
 [Service]
+WorkingDirectory=
 ExecStart=
 
 [Install]

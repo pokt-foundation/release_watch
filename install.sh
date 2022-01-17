@@ -9,6 +9,7 @@ cd "$root_dir"
 
 mkdir -p ./build
 cp ./config/release-watch.service ./build/release-watch.service
+sed -i "s|WorkingDirectory=|WorkingDirectory=${root_dir}|g" ./build/release-watch.service
 sed -i "s|ExecStart=|ExecStart=${root_dir}/venv/bin/release_watch|g" ./build/release-watch.service
 
 mkdir -p ~/.config/systemd/user

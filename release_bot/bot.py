@@ -23,7 +23,7 @@ discord_client = discord.Client()
 @dataclass
 class RepoConfig:
     chain: str
-    channel: int
+    channels: list[int]
     critical: bool
     repo: str
 
@@ -136,7 +136,8 @@ async def watch_for_release(repo: RepoConfig, wait_after: float, session : aioht
     else:
         if release.published_date.replace(tzinfo=None) > datetime.datetime.utcnow():
             message = format_release_message(repo.chain, release)
-            await send_message(dc, message, repo.channel)
+            for channel in repo.channels:
+                await send_message(dc, message, channel)
     finally:
         await asyncio.sleep(wait_after)
 

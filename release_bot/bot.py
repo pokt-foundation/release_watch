@@ -2,7 +2,7 @@ import argparse
 import asyncio
 from dataclasses import dataclass
 import datetime
-from typing import Optional
+from typing import List, Optional
 import os
 import os.path
 
@@ -23,12 +23,12 @@ discord_client = discord.Client()
 @dataclass
 class RepoConfig:
     chain: str
-    channels: list
+    channels: List[int]
     critical: bool
     repo: str
 
 
-def read_repos(repos_file : Optional[str] = None) -> list[RepoConfig]:
+def read_repos(repos_file : Optional[str] = None) -> List[RepoConfig]:
     """
     Parse the repos.yml file into a list of RepoConfig objects.
 

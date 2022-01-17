@@ -5,7 +5,7 @@ pdir="$(pwd)"
 
 cd "$root_dir"
 /usr/bin/env python3 -m venv ./venv
-./venv/bin/pip install .
+./venv/bin/python3 -m pip install .
 
 mkdir -p ./build
 cp ./config/release-watch.service ./build/release-watch.service

@@ -22,6 +22,7 @@ setup(
     packages=find_packages(),
     url="https://github.com/blockjoe/release_watch",
     install_requires=reqs,
+    setup_requires=['wheel'],
     entry_points={
         'console_scripts': ['release_watch=release_bot.bot:main']
     },

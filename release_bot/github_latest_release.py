@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 import datetime
-from functools import cache
+from functools import lru_cache
 import os.path
 import urllib.parse
 
@@ -18,7 +18,7 @@ class GithubReleaseInfo:
     is_prerelease: bool
     published_date: datetime.datetime
 
-@cache
+@lru_cache(maxsize=None)
 def _github_repo_url_to_latest_release_api_url(repo_url : str) -> str:
     url_parts = urllib.parse.urlsplit(repo_url)
     if url_parts.netloc != "github.com":

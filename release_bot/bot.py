@@ -132,12 +132,16 @@ async def watch_for_release(repo: RepoConfig, wait_after: float, session : aioht
     try:
         release = await get_latest_release(repo.repo, session)
     except RuntimeError:
-        print("No latest release for {}".format(repo.chain))
+        print("No relases exist for {}".format(repo.chain))
     else:
         if release.published_date.replace(tzinfo=None) > datetime.datetime.utcnow():
+            print("New release found for {}".format(repo.chain))
             message = format_release_message(repo.chain, release)
             for channel in repo.channels:
+                print("... Sending to {}".format(channel))
                 await send_message(dc, message, channel)
+        else:
+            print("No new release found for {}".format(repo.chain))
     finally:
         await asyncio.sleep(wait_after)
 

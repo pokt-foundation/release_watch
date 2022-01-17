@@ -23,7 +23,7 @@ discord_client = discord.Client()
 @dataclass
 class RepoConfig:
     chain: str
-    channels: list[int]
+    channels: list
     critical: bool
     repo: str
 

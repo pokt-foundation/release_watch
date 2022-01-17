@@ -1,0 +1,8 @@
+[Unit]
+Description=GitHub Node Release Watcher Bot
+
+[Service]
+ExecStart=source %h/release-watch/venv/bin/activate; release_watch
+
+[Install]
+WantedBy=default.target

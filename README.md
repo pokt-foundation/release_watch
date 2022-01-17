@@ -54,7 +54,9 @@ Each entry is formatted as follows:
 
 ```yaml
 name:
-  channel: id-of-the-discord-channel-to-notify
+  channels: 
+    - id-of-the-first-discord-channel-to-notify
+    - id-of-the-second-discord-channel-to-notify
   repo: url-to-the-repo
   critical: true/false # If False, notifications won't be sent. Set to True to get notifications.
 ```

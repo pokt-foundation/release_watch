@@ -1,50 +1,67 @@
 ---
 algorand:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: false
   repo: https://github.com/algorand/go-algorand
 arweave:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: false
   repo: https://github.com/ArweaveTeam/arweave
 avalanche:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/ava-labs/avalanchego
 binance:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/binance-exchange/binance-api-node
 bitcoin:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: false
   repo: https://github.com/bitcoin/bitcoin
 ethereum:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/ethereum/go-ethereum
 evmos:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: false
   repo: https://github.com/tharsis/evmos
 fuse:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/fuseio/fuse-network
 harmony:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/harmony-one/harmony
 iotex:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/iotexproject/iotex-core
+pocket:
+  channels:
+    - 930945459902640151
+  critical: true
+  repo: https://github.com/pokt-network/pocket-core/releases
 polygon:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/maticnetwork/bor
 solana:
-  channel: 930945459902640151
+  channels:
+    - 930945459902640151
   critical: true
   repo: https://github.com/solana-labs/solana
 

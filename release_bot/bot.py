@@ -162,6 +162,7 @@ async def watch_repos():
 @discord_client.event
 async def on_ready():
     """Start the main loop when the bot is ready"""
+    print("Discord client started, starting main loop")
     watch_repos.start()
 
 def get_args():

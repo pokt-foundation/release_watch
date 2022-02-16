@@ -130,6 +130,7 @@ async def watch_for_release(repo: RepoConfig, wait_after: float, session : aioht
     dc: discord.Client
     """
     try:
+        print("getting release for: {}".format(repo.chain))
         release = await get_latest_release(repo.repo, session)
     except RuntimeError:
         print("No relases exist for {}".format(repo.chain))

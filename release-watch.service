@@ -1,0 +1,14 @@
+[Unit]
+Description=Github Release Watch Discord Bot
+After=networki-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+User=ubuntu
+ExecStart=/home/ubuntu/release_watch/venv/bin/release_watch
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
+

@@ -35,6 +35,12 @@ ethereum:
     - 930945459902640151
   critical: true
   repo: https://github.com/ethereum/go-ethereum
+erigon:
+  channels:
+    - 931305730080915526
+    - 930945459902640151
+  critical: true
+  repo: https://github.com/ledgerwatch/erigon
 evmos:
   channels:
     - 931305730080915526

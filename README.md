@@ -74,7 +74,7 @@ that notifications can be toggled on as needed.
 To start the bot, simply run.
 
 ```sh
-$ relase_watch
+$ release_watch
 ```
 
 Full details:

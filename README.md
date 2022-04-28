@@ -6,7 +6,7 @@ a channel when a new release is published.
 ## Installation
 
 ```sh
-$ git clone https://github.com/blockjoe/release_watch.git
+$ git clone https://github.com/pokt-foundation/release_watch.git
 cd release_watch
 pip install .
 ```

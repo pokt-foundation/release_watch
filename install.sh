@@ -4,7 +4,7 @@ root_dir="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 pdir="$(pwd)"
 
 cd "$root_dir"
-/usr/bin/env python3.9 -m venv ./venv
+/usr/bin/env python3 -m venv ./venv
 ./venv/bin/python3 -m pip install .
 
 mkdir -p ./build

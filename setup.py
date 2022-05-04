@@ -20,7 +20,7 @@ setup(
     license="MIT",
     long_description=readme,
     packages=find_packages(),
-    url="https://github.com/blockjoe/release_watch",
+    url="https://github.com/pokt-foundation/release_watch",
     install_requires=reqs,
     setup_requires=['wheel'],
     entry_points={

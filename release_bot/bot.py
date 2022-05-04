@@ -16,9 +16,10 @@ import yaml
 from .github_latest_release import get_latest_release, GithubReleaseInfo
 
 ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-DEFAULT_REPOS_FILE = os.path.join(ROOT, 'repos.yml')
+DEFAULT_REPOS_FILE = os.path.join(ROOT, "repos.yml")
 
 discord_client = discord.Client()
+
 
 @dataclass
 class RepoConfig:
@@ -28,7 +29,7 @@ class RepoConfig:
     repo: str
 
 
-def read_repos(repos_file : Optional[str] = None) -> List[RepoConfig]:
+def read_repos(repos_file: Optional[str] = None) -> List[RepoConfig]:
     """
     Parse the repos.yml file into a list of RepoConfig objects.
 
@@ -43,9 +44,10 @@ def read_repos(repos_file : Optional[str] = None) -> List[RepoConfig]:
     """
     if not repos_file:
         repos_file = DEFAULT_REPOS_FILE
-    with open(repos_file, 'r') as rf:
+    with open(repos_file, "r") as rf:
         repos = yaml.load(rf, Loader=yaml.SafeLoader)
     return [RepoConfig(chain=chain, **config) for chain, config in repos.items()]
+
 
 def get_session_auth() -> aiohttp.BasicAuth:
     """
@@ -66,6 +68,7 @@ def get_session_auth() -> aiohttp.BasicAuth:
 
     return aiohttp.BasicAuth(os.environ.get("GH_USERNAME"), os.environ.get("GH_TOKEN"))
 
+
 def get_discord_auth() -> str:
     """
     Get the discord auth token from the .env value
@@ -83,7 +86,9 @@ def get_discord_auth() -> str:
     return os.environ.get("DISCORD_TOKEN")
 
 
-def format_release_message(chain : str, release_info : GithubReleaseInfo) -> discord.Embed:
+def format_release_message(
+    chain: str, release_info: GithubReleaseInfo
+) -> discord.Embed:
     """
     Generate the message to be sent to discord
 
@@ -100,12 +105,19 @@ def format_release_message(chain : str, release_info : GithubReleaseInfo) -> dis
         An object that represents a formatted discord embed link
     """
     title = "New {} Release - {}".format(chain.title(), release_info.name)
-    time_since = datetime.datetime.utcnow() - release_info.published_date.replace(tzinfo=None)
-    description = "Published {}, with tag: {}\n\n{}".format(humanize.naturaltime(time_since), release_info.tag, release_info.body)
-    message = discord.Embed(title=title, url=release_info.html_url, description=description)
+    time_since = datetime.datetime.utcnow() - release_info.published_date.replace(
+        tzinfo=None
+    )
+    description = "Published {}, with tag: {}\n\n{}".format(
+        humanize.naturaltime(time_since), release_info.tag, release_info.body
+    )
+    message = discord.Embed(
+        title=title, url=release_info.html_url, description=description
+    )
     return message
 
-async def send_message(client : discord.Client, content : discord.Embed, channel_id : int):
+
+async def send_message(client: discord.Client, content: discord.Embed, channel_id: int):
     """
     Send the given embed content to the specified channel.
 
@@ -121,7 +133,13 @@ async def send_message(client : discord.Client, content : discord.Embed, channel
         raise RuntimeError("The channel with id {} is unaccessible".format(channel_id))
     await channel.send(embed=content)
 
-async def watch_for_release(repo: RepoConfig, wait_after: float, session : aiohttp.ClientSession, dc : discord.Client):
+
+async def watch_for_release(
+    repo: RepoConfig,
+    wait_after: float,
+    session: aiohttp.ClientSession,
+    dc: discord.Client,
+):
     """
     repo: RepoConfig
     wait_after: float
@@ -132,10 +150,13 @@ async def watch_for_release(repo: RepoConfig, wait_after: float, session : aioht
     try:
         print("getting release for: {}".format(repo.chain))
         release = await get_latest_release(repo.repo, session)
-    except RuntimeError:
+    except RuntimeError as e:
+        print("Github error encountered: {}".format(str(e)))
         print("No relases exist for {}".format(repo.chain))
     else:
-        if release.published_date.replace(tzinfo=None) > datetime.datetime.utcnow():
+        if release.published_date.replace(
+            tzinfo=None
+        ) > datetime.datetime.utcnow() - datetime.timedelta(seconds=60):
             print("New release found for {}".format(repo.chain))
             message = format_release_message(repo.chain, release)
             for channel in repo.channels:
@@ -145,6 +166,7 @@ async def watch_for_release(repo: RepoConfig, wait_after: float, session : aioht
             print("No new release found for {}".format(repo.chain))
     finally:
         await asyncio.sleep(wait_after)
+
 
 @loop()
 async def watch_repos():
@@ -158,7 +180,10 @@ async def watch_repos():
         to_watch = [repo for repo in repo_configs if repo.critical]
         while True:
             for repo in to_watch:
-                await watch_for_release(repo, args.time/len(to_watch), gh_session, discord_client)
+                await watch_for_release(
+                    repo, args.time / len(to_watch), gh_session, discord_client
+                )
+
 
 @discord_client.event
 async def on_ready():
@@ -166,18 +191,34 @@ async def on_ready():
     print("Discord client started, starting main loop")
     watch_repos.start()
 
+
 def get_args():
     """argparser dependecny"""
-    parser = argparse.ArgumentParser(description="Discord bot for watching for unannouced github releases.")
-    parser.add_argument('-t', '--time', default=60, type=float, help="How often, in seconds, to check each of the tracked repositories.")
-    parser.add_argument('-c', '--config', default=None, help="The path to the repos configuration file. The default path for this is repos.yml in the root of the project.")
+    parser = argparse.ArgumentParser(
+        description="Discord bot for watching for unannouced github releases."
+    )
+    parser.add_argument(
+        "-t",
+        "--time",
+        default=60,
+        type=float,
+        help="How often, in seconds, to check each of the tracked repositories.",
+    )
+    parser.add_argument(
+        "-c",
+        "--config",
+        default=None,
+        help="The path to the repos configuration file. The default path for this is repos.yml in the root of the project.",
+    )
     return parser.parse_args()
+
 
 def main():
     get_args()
     load_dotenv()
     discord_token = get_discord_auth()
     discord_client.run(discord_token)
+
 
 if __name__ == "__main__":
     main()

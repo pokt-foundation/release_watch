@@ -167,8 +167,8 @@ async def on_ready():
     watch_repos.start()
 
 def get_args():
-    """argparser dependecny"""
-    parser = argparse.ArgumentParser(description="Discord bot for watching for unannouced github releases.")
+    """argparser dependency"""
+    parser = argparse.ArgumentParser(description="Discord bot for watching for unannounced github releases.")
     parser.add_argument('-t', '--time', default=60, type=float, help="How often, in seconds, to check each of the tracked repositories.")
     parser.add_argument('-c', '--config', default=None, help="The path to the repos configuration file. The default path for this is repos.yml in the root of the project.")
     return parser.parse_args()

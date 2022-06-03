@@ -1,17 +1,38 @@
-name: docker build
-on: [push]
+name: Build Docker Images
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+  push:
+    branches:
+      - master
+      - main
+
 jobs:
-  docker-build:
+  build-docker:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-      - name: docker build
-        run: |
-            SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c 1-7)
-            docker login --username ${DOCKERHUB_USERNAME} --password ${DOCKERHUB_PASSWORD}
-            docker build -t pocketfoundation/release-watch:${SHORT_SHA} .
-            docker push pocketfoundation/release-watch:${SHORT_SHA}
-        env:
-          DOCKERHUB_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
-          DOCKERHUB_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: pocketfoundation/release-watch
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

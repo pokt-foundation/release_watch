@@ -13,10 +13,10 @@ from dotenv import load_dotenv
 import humanize
 import yaml
 
-from .github_latest_release import get_latest_release, GithubReleaseInfo
+from github_latest_release import get_latest_release, GithubReleaseInfo
 
 ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-DEFAULT_REPOS_FILE = os.path.join(ROOT, "repos.yml")
+DEFAULT_REPOS_FILE = "./repos.yml"
 
 discord_client = discord.Client()
 

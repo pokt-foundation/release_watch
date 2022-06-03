@@ -20,6 +20,9 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: pocketfoundation/release-watch
+          tags: |
+            type=sha
+            type=ref,event=branch
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx

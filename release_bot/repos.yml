@@ -24,6 +24,11 @@ bitcoin:
     - 931305730080915526
   critical: false
   repo: https://github.com/bitcoin/bitcoin
+boba:
+  channels:
+    - 931305730080915526
+  critical: false
+  repo: https://github.com/bobanetwork/boba
 ethereum:
   channels:
     - 931305730080915526
@@ -39,6 +44,11 @@ evmos:
     - 931305730080915526
   critical: true
   repo: https://github.com/tharsis/evmos
+fantom:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/Fantom-foundation/go-opera
 fuse:
   channels:
     - 931305730080915526
@@ -54,6 +64,31 @@ iotex:
     - 931305730080915526
   critical: true
   repo: https://github.com/iotexproject/iotex-core
+moonbeam:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/PureStake/moonbeam
+moonriver:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/PureStake/moonbeam
+near:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/near/nearcore
+okex:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/okex/exchain
+optimism:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/ethereum-optimism/optimism
 pocket:
   channels:
     - 931305730080915526
@@ -74,4 +109,3 @@ test:
     - 931305730080915526
   critical: true
   repo: https://github.com/pokt-foundation/node-watch-test
-

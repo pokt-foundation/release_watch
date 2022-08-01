@@ -64,6 +64,11 @@ iotex:
     - 931305730080915526
   critical: true
   repo: https://github.com/iotexproject/iotex-core
+klaytn:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/klaytn/klaytn
 moonbeam:
   channels:
     - 931305730080915526

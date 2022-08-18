@@ -29,6 +29,12 @@ boba:
     - 931305730080915526
   critical: false
   repo: https://github.com/bobanetwork/boba
+dogechain:
+  channels:
+    - 931305730080915526
+    - 1008823719273177178
+  critical: true
+  repo: https://github.com/dogechain-lab/dogechain
 ethereum:
   channels:
     - 931305730080915526
@@ -119,8 +125,3 @@ test:
     - 931305730080915526
   critical: true
   repo: https://github.com/pokt-foundation/node-watch-test
-dogechain:
-  channels:
-    - 931305730080915526
-  critical: true
-  repo: https://github.com/dogechain-lab/dogechain

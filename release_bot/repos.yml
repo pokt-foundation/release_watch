@@ -119,3 +119,8 @@ test:
     - 931305730080915526
   critical: true
   repo: https://github.com/pokt-foundation/node-watch-test
+dogechain:
+  channels:
+    - 931305730080915526
+  critical: true
+  repo: https://github.com/dogechain-lab/dogechain

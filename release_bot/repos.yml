@@ -35,6 +35,12 @@ boba:
     - 1008823719273177178
   critical: false
   repo: https://github.com/bobanetwork/boba
+dogechain:
+  channels:
+    - 931305730080915526
+    - 1008823719273177178
+  critical: true
+  repo: https://github.com/dogechain-lab/dogechain
 ethereum:
   channels:
     - 931305730080915526

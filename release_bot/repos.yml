@@ -2,31 +2,37 @@
 algorand:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/algorand/go-algorand
 arweave:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: false
   repo: https://github.com/ArweaveTeam/arweave
 avalanche:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/ava-labs/avalanchego
 binance:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/binance-exchange/binance-api-node
 bitcoin:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: false
   repo: https://github.com/bitcoin/bitcoin
 boba:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: false
   repo: https://github.com/bobanetwork/boba
 dogechain:
@@ -38,90 +44,109 @@ dogechain:
 ethereum:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/ethereum/go-ethereum
 erigon:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/ledgerwatch/erigon
 evmos:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/tharsis/evmos
 fantom:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/Fantom-foundation/go-opera
 fuse:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/fuseio/fuse-network
 harmony:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/harmony-one/harmony
 iotex:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/iotexproject/iotex-core
 klaytn:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/klaytn/klaytn
 moonbeam:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/PureStake/moonbeam
 moonriver:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/PureStake/moonbeam
 near:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/near/nearcore
 okex:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/okex/exchain
 optimism:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/ethereum-optimism/optimism
 osmosis:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/osmosis-labs/osmosis
 pocket:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/pokt-network/pocket-core/releases
 polygon:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/maticnetwork/bor
 solana:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/solana-labs/solana
 test:
   channels:
     - 931305730080915526
+    - 1008823719273177178
   critical: true
   repo: https://github.com/pokt-foundation/node-watch-test
+  

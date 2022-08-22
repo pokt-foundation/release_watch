@@ -16,7 +16,12 @@ avalanche:
     - 931305730080915526
     - 1008823719273177178
   critical: true
-  repo: https://github.com/ava-labs/avalanchego
+avalanche-subnets:
+  channels:
+    - 931305730080915526
+    - 1008823719273177178
+  critical: true
+  repo: https://github.com/ava-labs/subnet-evm
 binance:
   channels:
     - 931305730080915526
@@ -142,7 +147,12 @@ solana:
     - 931305730080915526
     - 1008823719273177178
   critical: true
-  repo: https://github.com/solana-labs/solana
+swimmer:
+  channels:
+    - 931305730080915526
+    - 1008823719273177178
+  critical: true
+  repo: https://github.com/swimmer-network/subnet-evm
 test:
   channels:
     - 931305730080915526

@@ -143,6 +143,12 @@ solana:
     - 1008823719273177178
   critical: true
   repo: https://github.com/solana-labs/solana
+celo:
+  channels:
+    - 931305730080915526
+    - 1008823719273177178
+  critical: true
+  repo: https://github.com/celo-org/celo-blockchain
 test:
   channels:
     - 931305730080915526
